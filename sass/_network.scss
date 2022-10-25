@@ -19,3 +19,19 @@
     gap: 0 60px;
   }
 }
+
+@media screen and (max-width: 1023.98px) {
+  .network-image {
+    margin-top: 60px;
+  }
+
+  .partner-container {
+    gap: 0 10px;
+  }
+}
+
+@media screen and (max-width: 767.98px) {
+  .partner {
+    margin-bottom: 30px;
+  }
+}

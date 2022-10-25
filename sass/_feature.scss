@@ -23,3 +23,24 @@
     font-size: 14px;
   }
 }
+
+@media screen and (max-width: 1023.98px) {
+  .feature {
+    padding-bottom: 95px;
+  }
+
+  .feature-container {
+    gap: 0 30px;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 767.98px) {
+  .feature {
+    padding-bottom: 50px;
+  }
+  .feature-container {
+    flex-direction: column;
+    gap: 50px 0;
+  }
+}

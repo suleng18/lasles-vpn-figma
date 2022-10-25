@@ -12,6 +12,7 @@
     padding: 30px;
     border: 2px solid $gray-lighter-color;
     border-radius: 10px;
+    margin: 0 25px;
     &.slick-current.slick-active {
       border-color: $primary-color;
     }
@@ -53,9 +54,12 @@
   }
 
   //slick slider
+  .slick-slide {
+    height: unset;
+  }
+
   .slick-track {
     display: flex;
-    gap: 0 50px;
     padding-bottom: 60px;
   }
 

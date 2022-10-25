@@ -74,6 +74,8 @@ button {
   font-size: 16px;
   border: none;
   outline: none;
+  text-align: center;
+  white-space: nowrap;
 }
 .button--primary {
   font-weight: 700;
@@ -115,6 +117,11 @@ button {
   text-align: center;
 }
 
+@media screen and (max-width: 767.98px) {
+  .button {
+    padding: 13px 26px;
+  }
+}
 h1,
 h2,
 h3,
@@ -151,6 +158,11 @@ h6 {
   line-height: 2.1428571429;
 }
 
+@media screen and (max-width: 767.98px) {
+  .heading {
+    font-size: 30px;
+  }
+}
 .header {
   padding-top: 50px;
   padding-bottom: 90px;
@@ -178,6 +190,14 @@ h6 {
   border: 1px solid;
 }
 
+@media screen and (max-width: 1023.98px) {
+  .header {
+    padding: 25px 0 50px;
+  }
+  .header-auth {
+    display: none;
+  }
+}
 .menu {
   display: flex;
   align-items: center;
@@ -187,7 +207,71 @@ h6 {
 .menu-link {
   color: inherit;
 }
+.menu-toggle {
+  display: none;
+  width: 30px;
+  height: 20px;
+}
+.menu-toggle span {
+  pointer-events: none;
+  width: 100%;
+  height: 3px;
+  background-color: rgb(74, 59, 59);
+  display: block;
+}
 
+@media screen and (min-width: 768px) {
+  .menu-item--auth {
+    display: none;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .menu {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #fff;
+    width: 300px;
+    z-index: 99;
+    border-left: 1px solid #ddd;
+    flex-direction: column;
+    gap: 10px 0;
+    padding-top: 60px;
+    align-items: stretch;
+    transform: translateX(100%);
+    will-change: transform;
+    transition: all 0.2s linear;
+  }
+  .menu.is-show {
+    transform: none;
+  }
+  .menu-item {
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  .menu-link {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    transition: all 0.2s linear;
+  }
+  .menu-link:hover {
+    background-color: #f53838;
+    color: #fff;
+  }
+  .menu-toggle {
+    display: inline-flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  .menu-item--auth {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
 .hero {
   padding-bottom: 100px;
 }
@@ -201,12 +285,6 @@ h6 {
 .hero-content {
   width: 100%;
   max-width: 555px;
-}
-.hero-image {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translate(40px, -50%);
 }
 .hero-heading {
   font-size: 50px;
@@ -223,6 +301,31 @@ h6 {
   font-weight: 500;
 }
 
+@media screen and (min-width: 1280px) {
+  .hero-image {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(40px, -50%);
+  }
+}
+@media screen and (max-width: 1023.98px) {
+  .hero-heading {
+    font-size: 35px;
+  }
+  .hero {
+    padding-bottom: 50px;
+  }
+}
+@media screen and (max-width: 767.98px) {
+  .hero-container {
+    flex-direction: column-reverse;
+    gap: 50px 0;
+  }
+  .hero-desc {
+    margin-bottom: 25px;
+  }
+}
 .intro {
   margin-bottom: 95px;
 }
@@ -241,10 +344,6 @@ h6 {
   justify-content: center;
   gap: 0 36.5px;
 }
-.intro-item:nth-child(2) {
-  border-left: 2px solid #eeeff2;
-  border-right: 2px solid #eeeff2;
-}
 .intro-title {
   font-size: 25px;
   margin-bottom: 5px;
@@ -255,6 +354,26 @@ h6 {
   font-weight: 400;
 }
 
+@media screen and (min-width: 768px) {
+  .intro {
+    margin-bottom: 50px;
+  }
+  .intro-item:nth-child(2) {
+    border-left: 2px solid #eeeff2;
+    border-right: 2px solid #eeeff2;
+  }
+}
+@media screen and (max-width: 767.98px) {
+  .intro-container {
+    grid-template-columns: 100%;
+    padding: 30px;
+    grid-gap: 30px 0;
+  }
+  .intro-item {
+    justify-content: start;
+    grid-gap: 0 25px;
+  }
+}
 .feature {
   padding-bottom: 130px;
 }
@@ -278,9 +397,31 @@ h6 {
   font-size: 14px;
 }
 
+@media screen and (max-width: 1023.98px) {
+  .feature {
+    padding-bottom: 95px;
+  }
+  .feature-container {
+    gap: 0 30px;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 767.98px) {
+  .feature {
+    padding-bottom: 50px;
+  }
+  .feature-container {
+    flex-direction: column;
+    gap: 50px 0;
+  }
+}
 .plan {
   padding: 80px 0 30px;
   background: linear-gradient(180deg, #f8f8f8 -45.04%, rgba(248, 248, 248, 0) 88.56%);
+}
+.plan .button {
+  width: 100%;
+  transition: all 0.2s linear;
 }
 .plan-heading {
   max-width: 555px;
@@ -336,6 +477,35 @@ h6 {
   color: white;
 }
 
+@media screen and (max-width: 1023.98px) {
+  .plan {
+    padding: 55px 0;
+  }
+  .plan-list {
+    display: grid;
+    justify-content: flex-start;
+    grid-auto-columns: 310px;
+    grid-auto-flow: column;
+    grid-gap: 0 30px;
+    overflow: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-snap-stop: always;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    -webkit-overflow-scrolling: touch;
+    scroll-padding: 1rem;
+    grid-template-columns: unset;
+    margin-bottom: 60px;
+  }
+  .plan-list::-webkit-scrollbar {
+    display: none;
+    width: 0;
+  }
+  .plan-list > * {
+    scroll-snap-align: start;
+  }
+}
 .network-heading {
   max-width: 380px;
   margin-left: auto;
@@ -355,6 +525,19 @@ h6 {
   gap: 0 60px;
 }
 
+@media screen and (max-width: 1023.98px) {
+  .network-image {
+    margin-top: 60px;
+  }
+  .partner-container {
+    gap: 0 10px;
+  }
+}
+@media screen and (max-width: 767.98px) {
+  .partner {
+    margin-bottom: 30px;
+  }
+}
 .customer .boxed {
   margin-bottom: 60px;
 }
@@ -367,6 +550,7 @@ h6 {
   padding: 30px;
   border: 2px solid #ddd;
   border-radius: 10px;
+  margin: 0 25px;
 }
 .customer-item.slick-current.slick-active {
   border-color: #f53838;
@@ -400,9 +584,11 @@ h6 {
   align-items: center;
   gap: 0 10px;
 }
+.customer .slick-slide {
+  height: unset;
+}
 .customer .slick-track {
   display: flex;
-  gap: 0 50px;
   padding-bottom: 60px;
 }
 .customer .slick-arrow {
@@ -463,6 +649,16 @@ h6 {
   max-width: 371px;
 }
 
+@media screen and (max-width: 767.98px) {
+  .subscribe {
+    transform: translateY(20%);
+  }
+  .subscribe-container {
+    flex-direction: column;
+    gap: 30px 0;
+    padding: 50px 40px 60px;
+  }
+}
 .footer {
   padding-bottom: 100px;
   padding-top: 180px;
@@ -500,6 +696,21 @@ h6 {
 .footer-link {
   line-height: 1.875;
   color: inherit;
+}
+
+@media screen and (max-width: 1023.98px) {
+  .footer-container {
+    gap: 0 30px;
+  }
+}
+@media screen and (max-width: 767.98px) {
+  .footer {
+    padding: 150px 0 50px;
+  }
+  .footer-container {
+    grid-template-columns: 100%;
+    gap: 30px 0;
+  }
 }
 
 /*# sourceMappingURL=app.css.map */
